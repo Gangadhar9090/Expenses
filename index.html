@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Milk Rate Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Milk Rate Calculator</h1>
+      <p class="subtitle">Calculate milk price from Fat %, SNF %, and quantity. Get a live rate chart instantly.</p>
+
+      <section class="card">
+        <h2>Calculator</h2>
+        <form id="calc-form" class="grid" novalidate>
+          <label>
+            Fat %
+            <input id="fat" type="number" step="0.1" min="0" max="12" value="4.0" required />
+          </label>
+          <label>
+            SNF %
+            <input id="snf" type="number" step="0.1" min="0" max="15" value="8.5" required />
+          </label>
+          <label>
+            Quantity (Liters)
+            <input id="qty" type="number" step="0.1" min="0" value="10" required />
+          </label>
+
+          <label>
+            Fat Rate (₹ per 1% Fat)
+            <input id="fat-rate" type="number" step="0.1" min="0" value="6" required />
+          </label>
+          <label>
+            SNF Rate (₹ per 1% SNF)
+            <input id="snf-rate" type="number" step="0.1" min="0" value="4" required />
+          </label>
+          <label>
+            Base Rate (₹)
+            <input id="base-rate" type="number" step="0.1" value="0" required />
+          </label>
+
+          <button type="submit">Calculate</button>
+        </form>
+
+        <p id="error" class="error" aria-live="polite"></p>
+        <div id="result" class="result" aria-live="polite"></div>
+      </section>
+
+      <section class="card">
+        <h2>Rate Chart (₹/Liter)</h2>
+        <p class="hint">Rows = Fat %, Columns = SNF %. Highlighted cell matches nearest entered Fat/SNF.</p>
+        <div class="table-wrap">
+          <table id="rate-chart"></table>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
